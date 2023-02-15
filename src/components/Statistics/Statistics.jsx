@@ -1,5 +1,5 @@
 import React from 'react';
-// import css from './Statistics.module.css';
+import { Text } from './Statistics.styled';
 import { Notification } from '../Notification/Notification';
 import PropTypes from 'prop-types';
 export const Statistics = ({
@@ -11,11 +11,11 @@ export const Statistics = ({
 }) =>
   total ? (
     <div>
-      <p>Good: {onGood}</p>
-      <p>Neutral: {onNeutral}</p>
-      <p>Bad: {onBad}</p>
-      <p>Total: {total}</p>
-      <p>Positive feedback: {PositiveFeedback}%</p>
+      <Text>Good: {onGood}</Text>
+      <Text>Neutral: {onNeutral}</Text>
+      <Text>Bad: {onBad}</Text>
+      <Text>Total: {total}</Text>
+      <Text>Positive feedback: {PositiveFeedback}%</Text>
     </div>
   ) : (
     <Notification message={'There is no feedback'} />

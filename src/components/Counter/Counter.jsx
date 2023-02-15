@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Statistics } from 'components/Statistics/Statistics';
-import css from './Counter.module.css';
+import { Container } from './Counter.styled';
 import { FeedbackOptions } from 'components/FeedbackOptions/FeedbackOptions';
 import { Section } from 'components/Section/Section';
 const options = ['Good', 'Neutral', 'Bad'];
@@ -27,7 +27,7 @@ export class Counter extends React.Component {
 
   render() {
     return (
-      <div className={css.container}>
+      <Container>
         <Section titel="Please leave feedback">
           <FeedbackOptions
             options={options}
@@ -43,7 +43,7 @@ export class Counter extends React.Component {
             PositiveFeedback={this.countPositiveFeedbackPercentage(this.state)}
           />
         </Section>
-      </div>
+      </Container>
     );
   }
 }

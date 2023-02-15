@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import { Titel } from './Section.styled';
 export const Section = ({ titel, children }) => (
   <>
-    <h2> {titel}</h2>
+    <Titel> {titel}</Titel>
     {children}
   </>
 );
