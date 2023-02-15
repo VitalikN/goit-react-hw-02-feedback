@@ -18,5 +18,5 @@ export const Statistics = ({
       <p>Positive feedback: {PositiveFeedback}%</p>
     </div>
   ) : (
-    <Notification message={'There is no feedback'} />
+    <Notification />
   );

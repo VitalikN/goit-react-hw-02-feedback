@@ -1,3 +1,3 @@
 import React from 'react';
 
-export const Notification = ({ message }) => <p>{message}</p>;
+export const Notification = () => <p>{'There is no feedback'}</p>;
