@@ -1,6 +1,6 @@
 import React from 'react';
 // import css from './Statistics.module.css';
-import { Notification } from 'components/Counter/Notification/Notification';
+import { Notification } from '../Notification/Notification';
 
 export const Statistics = ({
   onGood,
