@@ -3,7 +3,7 @@ import { Counter } from './Counter/Counter';
 export const App = () => {
   return (
     <div>
-      <Counter total={0} />
+      <Counter />
     </div>
   );
 };
