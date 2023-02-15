@@ -1,7 +1,7 @@
 import React from 'react';
 import { Statistics } from 'components/Statistics/Statistics';
 import css from './Counter.module.css';
-
+import { FeedbackOptions } from 'components/FeedbackOptions/FeedbackOptions';
 export class Counter extends React.Component {
   state = {
     good: 0,
@@ -32,23 +32,18 @@ export class Counter extends React.Component {
     return (
       <div className={css.container}>
         <h1>Please leave feedback</h1>
-        <button type="button" onClick={this.addGood}>
-          Good
-        </button>
-        <button type="button" onClick={this.addNeutral}>
-          Neutral
-        </button>
-        <button type="button" onClick={this.addBad}>
-          Bad
-        </button>
+        <FeedbackOptions
+          good={this.addGood}
+          neutral={this.addNeutral}
+          bad={this.addBad}
+        />
+        <h2>Statistics</h2>
         <Statistics
           onGood={this.state.good}
           onNeutral={this.state.neutral}
           onBad={this.state.bad}
           total={this.countTotalFeedback(this.state)}
-          onCountPositiveFeedbackPercentage={this.countPositiveFeedbackPercentage(
-            this.state
-          )}
+          PositiveFeedback={this.countPositiveFeedbackPercentage(this.state)}
         />
       </div>
     );

@@ -1,21 +1,22 @@
 import React from 'react';
 // import css from './Statistics.module.css';
+import { Notification } from 'components/Counter/Notification/Notification';
 
 export const Statistics = ({
   onGood,
   onNeutral,
   onBad,
   total,
-  onCountPositiveFeedbackPercentage,
-}) => {
-  return (
+  PositiveFeedback,
+}) =>
+  total ? (
     <div>
-      <h2>Statistics</h2>
       <p>Good: {onGood}</p>
       <p>Neutral: {onNeutral}</p>
       <p>Bad: {onBad}</p>
       <p>Total: {total}</p>
-      <p>Positive feedback: {onCountPositiveFeedbackPercentage}%</p>
+      <p>Positive feedback: {PositiveFeedback}%</p>
     </div>
+  ) : (
+    <Notification message={'There is no feedback'} />
   );
-};
