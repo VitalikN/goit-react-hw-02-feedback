@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Statistics } from 'components/Statistics/Statistics';
 import css from './Counter.module.css';
 import { FeedbackOptions } from 'components/FeedbackOptions/FeedbackOptions';
