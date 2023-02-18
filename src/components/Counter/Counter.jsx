@@ -4,7 +4,6 @@ import { Statistics } from 'components/Statistics/Statistics';
 import { Container } from './Counter.styled';
 import { FeedbackOptions } from 'components/FeedbackOptions/FeedbackOptions';
 import { Section } from 'components/Section/Section';
-const options = ['Good', 'Neutral', 'Bad'];
 
 export class Counter extends React.Component {
   state = {
@@ -12,13 +11,10 @@ export class Counter extends React.Component {
     neutral: 0,
     bad: 0,
   };
-  onClickBtn = ({ target }) => {
-    const { feedback } = target.dataset;
-    this.setState(prevState => {
-      return {
-        [feedback]: prevState[feedback] + 1,
-      };
-    });
+  onClickBtn = option => {
+    this.setState(prevState => ({
+      [option]: prevState[option] + 1,
+    }));
   };
   countTotalFeedback = ({ good, neutral, bad }) => good + neutral + bad;
 
@@ -26,19 +22,21 @@ export class Counter extends React.Component {
     Math.round((good * 100) / (good + neutral + bad)) || 0;
 
   render() {
+    const { good, neutral, bad } = this.state;
+    const optionKey = Object.keys(this.state);
     return (
       <Container>
         <Section titel="Please leave feedback">
           <FeedbackOptions
-            options={options}
+            options={optionKey}
             onLeaveFeedback={this.onClickBtn}
           />
         </Section>
         <Section titel="Statistics">
           <Statistics
-            onGood={this.state.good}
-            onNeutral={this.state.neutral}
-            onBad={this.state.bad}
+            onGood={good}
+            onNeutral={neutral}
+            onBad={bad}
             total={this.countTotalFeedback(this.state)}
             PositiveFeedback={this.countPositiveFeedbackPercentage(this.state)}
           />

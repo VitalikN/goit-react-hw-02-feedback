@@ -5,13 +5,8 @@ import { Container, Btn } from './FeedbackOptions.styled';
 export const FeedbackOptions = ({ options, onLeaveFeedback }) => (
   <Container>
     {options.map(el => (
-      <Btn
-        data-feedback={el.toLowerCase()}
-        type="button"
-        onClick={onLeaveFeedback}
-        key={el}
-      >
-        {el}
+      <Btn key={el} type="button" onClick={() => onLeaveFeedback(el)}>
+        {el[0].toUpperCase() + el.slice(1)}
       </Btn>
     ))}
   </Container>
